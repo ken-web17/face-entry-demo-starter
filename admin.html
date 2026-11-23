@@ -1,16 +1,63 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>開発中</title>
+  <title>管理者ページ | Face Entry Demo</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <main class="container">
-    <h1>このページは開発中です</h1>
-    <p class="subtitle">次の開発ステップで機能を追加します。</p>
-    <a class="admin" href="index.html">メインページへ戻る</a>
+    <header class="page-header">
+      <p class="eyebrow">FACE ENTRY DEMO</p>
+      <h1>管理者ページ</h1>
+      <p>顔認証式入室管理システム</p>
+    </header>
+
+    <section id="login-section" class="panel">
+      <h2>管理者ログイン</h2>
+
+      <form id="login-form">
+        <label for="email">メールアドレス</label>
+        <input id="email" type="email" required autocomplete="username">
+
+        <label for="password">パスワード</label>
+        <input id="password" type="password" required autocomplete="current-password">
+
+        <button type="submit">ログイン</button>
+      </form>
+
+      <p id="login-message" class="message"></p>
+    </section>
+
+    <section id="dashboard" class="panel" hidden>
+      <h2>ダッシュボード</h2>
+
+      <p>ログイン中：<strong id="admin-email"></strong></p>
+
+      <div class="status-card">
+        <h3>Firebase接続テスト</h3>
+        <p>Firestoreとの通信を確認します。</p>
+        <button id="firestore-test" type="button">
+          接続テストを実行
+        </button>
+        <p id="firestore-result" class="message"></p>
+      </div>
+
+      <div class="coming-soon">
+        <h3>管理機能</h3>
+        <p>登録者管理・カメラ管理・表示機管理・入室履歴は次の開発段階で追加します。</p>
+      </div>
+
+      <button id="logout-button" class="secondary" type="button">
+        ログアウト
+      </button>
+    </section>
   </main>
+
+  <script type="module" src="js/admin-auth.js"></script>
+  <script type="module" src="js/firestore-test.js"></script>
 </body>
 </html>
